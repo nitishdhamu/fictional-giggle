@@ -16,9 +16,9 @@ Pairs with green.py. Prompts for a repo and a removal mode:
 
 Usage:
   python remove.py                        # fully interactive
-  python remove.py --repo nitishdhamu/fictional-giggle --mode 1
-  python remove.py --repo nitishdhamu/fictional-giggle --mode 2 --token ghp_xxx
-  python remove.py --repo nitishdhamu/fictional-giggle --mode 3
+  python remove.py --repo nitishdhamu/OO --mode 1
+  python remove.py --repo nitishdhamu/OO --mode 2 --token ghp_xxx
+  python remove.py --repo nitishdhamu/OO --mode 3
 
 Notes:
   - Modes 2 and 3 are destructive/irreversible (mode 2 fully; mode 3 rewrites
@@ -204,7 +204,7 @@ def main():
 
     print("=== remove.py — un-green your contribution graph ===\n")
     token = get_token(args.token or "")
-    slug = args.repo or prompt_repo("nitishdhamu/fictional-giggle")
+    slug = args.repo or prompt_repo("nitishdhamu/OO")
     if not repo_exists(slug, token):
         sys.exit(f"ERROR: {slug} not found (or token can't see it).")
     mode = int(args.mode) if args.mode else prompt_mode()

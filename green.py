@@ -18,7 +18,7 @@ Usage:
   python green.py --start 2026-09-01 --end 2026-09-20 --days 1,3,5 --min 5 --max 15 --dry-run
 
 Notes:
-  - Pushes to https://github.com/nitishdhamu/fictional-giggle (change REPO below
+  - Pushes to https://github.com/nitishdhamu/OO (change REPO below
     or pass --repo owner/name). Uses your stored git credentials; if the repo
     doesn't exist it is created automatically (public) via the API.
   - To fully reset GitHub's contribution cache for this repo, delete the repo
@@ -47,39 +47,15 @@ LOGIN = "nitishdhamu"
 UID = 95616314
 EMAIL = f"{UID}+{LOGIN}@users.noreply.github.com"
 IDENT = f"{LOGIN} <{EMAIL}>"
-REPO_DEFAULT = "nitishdhamu/fictional-giggle"
+REPO_DEFAULT = "nitishdhamu/OO"
 
 DAY_NAMES = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"]  # weekday() index
 
 def build_readme() -> bytes:
-    """A red carpet README: 1,000,000+ lines of carpet runner."""
-    W = 20                 # emoji per row
-    ROWS = 1_000_000       # red rows (plus borders/stripes => 1M+ lines total)
-    red, gold = "\U0001F7E5", "\U0001F7E8"
-    red_row, gold_row = red * W, gold * W
-    lines = [
-        "# \U0001F3AC THE RED CARPET \U0001F3AC",
-        "",
-        "Roll it out. Walk it daily. Never let the graph go grey.",
-        "",
-        "## Tools on this carpet",
-        "",
-        "- `green.py` — interactive backfill: asks for start/end date, which",
-        "  weekdays (1=Mon..7=Sun, 8=all), and min/max commits per day; builds",
-        "  the whole history via git fast-import, verifies it, pushes.",
-        "  Flags: `--start --end --days --min --max --repo --dry-run`",
-        "- `remove.py` — un-green: make repo private, delete it, or rewrite",
-        "  every commit to a neutral identity. Flags: `--repo --mode 1|2|3`",
-        "",
-        "Now walking the carpet... \U0001F9CD",
-        "",
-    ]
-    lines += [gold_row] * 3
-    for i in range(ROWS):
-        lines.append(gold_row if i % 25 == 12 else red_row)
-    lines += [gold_row] * 3
-    lines += ["", "\U0001F3AC END OF THE CARPET \U0001F3AC", ""]
-    return ("\n".join(lines) + "\n").encode("utf-8")
+    """The red carpet: exactly 1000 lines x 37 red squares. Nothing else."""
+    W, ROWS = 37, 1000        # 37 x 1000 = 37,000 red boxes, pure
+    line = "\U0001F7E5" * W
+    return ("\n".join([line] * ROWS) + "\n").encode("utf-8")
 
 
 BLOB = (
